@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+	</head>
+
+	<body>
+		<script src="js/pixi.min.js"></script>
+		<script>
+			var app = new PIXI.Application(1366, 768);
+			document.body.appendChild(app.view);
+			var bg = new PIXI.Sprite.fromImage("res/4千帆聚明州.png");
+			app.stage.addChild(bg);
+
+			var b1 = new PIXI.Sprite.fromImage("res/1 千帆聚明州.png");
+			app.stage.addChild(b1);
+			b1.x = 200;
+			b1.y = 200;
+
+			var b2 = new PIXI.Sprite.fromImage("res/2 千帆聚明州.png");
+			app.stage.addChild(b2);
+			b2.x = 500;
+			b2.y = 370;
+
+			var b3 = new PIXI.Sprite.fromImage("res/3 千帆聚明州.png");
+			app.stage.addChild(b3);
+			b3.x = 750;
+			b3.y = 700;
+
+			var myj = new PIXI.Sprite.fromImage("res/2 贸易街长图.png");
+
+			b1.interactive = true;
+			b1.on("click", cb1);
+
+			function cb1() {
+				b1.visible = false;
+
+			}
+
+			b2.interactive = true;
+			b2.on("click", cb2);
+
+			function cb2() {
+				b2.visible = false;
+			}
+
+			b3.interactive = true;
+			b3.on("click", cb3);
+
+			function cb3() {
+
+				app.stage.addChild(myj);
+			} 
+			
+			var kt = new PIXI.Sprite.fromImage("res/kb.png");
+			app.stage.addChild(kt);
+			var ktb = new PIXI.Sprite.fromImage("res/开头b.png");
+			kt.addChild(ktb);
+			ktb.x = 450;
+			ktb.y = 300;
+			var ktn = new PIXI.Sprite.fromImage("res/开头n.png");
+			kt.addChild(ktn);
+			ktn.x = 100;
+			ktn.y = 100;
+			
+			var kty = new PIXI.Sprite.fromImage("res/开头y.png");
+			kt.addChild(kty);
+			kty.x = 500;
+			kty.y = 500;
+			var ktz = new PIXI.Sprite.fromImage("res/开头z.png");
+			kt.addChild(ktz);
+			ktz.x = 100;
+			ktz.y = 500;
+			
+			app.ticker.add(animate);
+
+			function animate() {
+				kt.alpha -= 0.003;
+				ktz.x -= 1;
+				kty.x += 1;
+				ktn.y += 0.1;
+				ktb.x -= 3;
+				ktb.scale.x += 0.01;
+				ktb.scale.y += 0.01;
+			}
+			
+			
+		</script>
+	</body>
+
+</html>
